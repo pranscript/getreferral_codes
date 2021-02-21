@@ -1,0 +1,113 @@
+
+
+<div class="tab-content" id="nav-tabContent">
+    <div *ngIf="this.topnav=== 'popular' || this.topnav== ''" class="tab-pane fade {{this.showPopular}}" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+      <div class="container" id="content1">
+        <div class="row gx-1" >
+          <!-- <div *ngFor="let card of data | search:'name':searchTerm; index as i;" class="col-sm-4"> -->
+          <div *ngFor="let card of data; index as i;" class="col-sm-4" >
+            <a [routerLink]="['../ref', card.name.toLocaleLowerCase()]"><div class="profile-card js-profile-card">
+              <div class="profile-card__img">
+                <img src="{{card.imgURL}}" alt="profile card">
+              </div>
+              
+              <div class="profile-card__cnt js-profile-cnt">
+                <div class="profile-card__name">{{card.name}}</div>
+                <div class="profile-card__name">Popular</div>
+                <div class="profile-card__txt">{{card.text}}</div>
+                <div class="profile-card-loc">
+                  <span class="profile-card-loc__icon">
+                    <svg class="icon"><use xlink:href="#icon-location"></use></svg>
+                  </span>
+                </div>
+              </div>
+              <mat-progress-bar mode="determinate" value="100"></mat-progress-bar>
+              
+            </div>
+            </a>
+          </div>
+        </div>
+      
+      </div>
+    </div> 
+    <!-- [ngIf]="this.topnav== 'latest'"  -->
+    <div *ngIf="this.topnav== 'latest'" class="tab-pane fade {{this.showLatest}}" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+      <div class="container" id="content2">
+        <div class="row gx-1" >
+          <div *ngFor="let card of data; index as i;" class="col-sm-4">
+            <a [routerLink]="['../ref', card.name.toLocaleLowerCase()]"><div class="profile-card js-profile-card">
+              <div class="profile-card__img">
+                <img src="{{card.imgURL}}" alt="profile card">
+              </div>
+              
+              <div class="profile-card__cnt js-profile-cnt">
+                <div class="profile-card__name">{{card.name}}</div>
+                <div class="profile-card__name">Latest</div>
+                <div class="profile-card__txt">{{card.text}}</div>
+                <div class="profile-card-loc">
+                  <span class="profile-card-loc__icon">
+                    <svg class="icon"><use xlink:href="#icon-location"></use></svg>
+                  </span>
+                </div>
+              </div>
+              <mat-progress-bar mode="determinate" value="100"></mat-progress-bar>
+              
+            </div>
+          </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="tab-pane fade {{this.showRecommended}}" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
+      <div class="container" id="content3">
+        <div class="row gx-1" >
+          <div *ngFor="let card of data; index as i;" class="col-sm-4">
+            <a [routerLink]="['../ref', card.name.toLocaleLowerCase()]"><div class="profile-card js-profile-card">
+              <div class="profile-card__img">
+                <img src="{{card.imgURL}}" alt="profile card">
+              </div>
+              
+              <div class="profile-card__cnt js-profile-cnt">
+                <div class="profile-card__name">{{card.name}}</div>
+                <div class="profile-card__txt">{{card.text}}</div>
+                <div class="profile-card-loc">
+                  <span class="profile-card-loc__icon">
+                    <svg class="icon"><use xlink:href="#icon-location"></use></svg>
+                  </span>
+                </div>
+              </div>
+              <mat-progress-bar mode="determinate" value="100"></mat-progress-bar>
+              
+            </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="tab-pane fade {{this.showSidenav}}" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
+      <div class="container" id="content4">
+        <div class="row gx-1" >
+          <div *ngFor="let card of data | sidenavfilter :'tag':this.topnav; index as i;" class="col-sm-4">
+            <a [routerLink]="['../ref', card.name.toLocaleLowerCase()]"><div class="profile-card js-profile-card">
+              <div class="profile-card__img">
+                <img src="{{card.imgURL}}" alt="profile card">
+              </div>
+              
+              <div class="profile-card__cnt js-profile-cnt">
+                <div class="profile-card__name">{{card.name}} crypto</div>
+                <div class="profile-card__txt">{{card.text}}</div>
+                <div class="profile-card-loc">
+                  <span class="profile-card-loc__icon">
+                    <svg class="icon"><use xlink:href="#icon-location"></use></svg>
+                  </span>
+                </div>
+              </div>
+              <mat-progress-bar mode="determinate" value="100"></mat-progress-bar>
+              
+            </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

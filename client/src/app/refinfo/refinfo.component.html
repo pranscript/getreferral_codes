@@ -1,0 +1,35 @@
+<div class="tab-content" id="nav-tabContent">
+    <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+        <div class="container" id="content1">
+          <div class="row gx-1" >
+            <!-- <div *ngFor="let card of data | search:'name':searchTerm; index as i;" class="col-sm-4"> -->
+            <div class="col-sm-4">
+              <div class="profile-card__img">
+                <img src="{{ref?.imgURL}}" alt="profile card">
+              </div>
+            </div>
+            <div class="col-sm-6">
+              
+              
+              <div class="profile-card__cnt js-profile-cnt">
+                <div class="profile-card__name">{{ref?.title}}</div>
+                <div class="profile-card__txt">{{ref?.text}}</div>
+                <div class="profile-card__description">{{ref?.description}}</div>
+                <div class="profile-card__code">{{ref?.referralcode}}</div>
+                <div class="profile-card__link">{{ref?.referralURL}}</div>
+                <div class="profile-card-loc">
+                  <span class="profile-card-loc__icon">
+                    <svg class="icon"><use xlink:href="#icon-location"></use></svg>
+                  </span>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-2">
+              right
+             </div>
+          </div>
+        
+        </div>
+      </div>
+
+</div>

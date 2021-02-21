@@ -1,0 +1,101 @@
+<div class="container-fluid" style="position:absolute;padding:0">
+    <!-- <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#dce8f9" fill-opacity="1" d="M0,192L40,165.3C80,139,160,85,240,96C320,107,400,181,480,192C560,203,640,149,720,144C800,139,880,181,960,176C1040,171,1120,117,1200,96C1280,75,1360,85,1400,90.7L1440,96L1440,0L1400,0C1360,0,1280,0,1200,0C1120,0,1040,0,960,0C880,0,800,0,720,0C640,0,560,0,480,0C400,0,320,0,240,0C160,0,80,0,40,0L0,0Z"></path></svg> -->
+    <!-- <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#81d4e6" fill-opacity="1" d="M0,192L40,176C80,160,160,128,240,106.7C320,85,400,75,480,90.7C560,107,640,149,720,160C800,171,880,149,960,128C1040,107,1120,85,1200,90.7C1280,96,1360,128,1400,144L1440,160L1440,0L1400,0C1360,0,1280,0,1200,0C1120,0,1040,0,960,0C880,0,800,0,720,0C640,0,560,0,480,0C400,0,320,0,240,0C160,0,80,0,40,0L0,0Z"></path></svg> -->
+    <!-- <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#04adf4" fill-opacity="1" d="M0,96L60,101.3C120,107,240,117,360,112C480,107,600,85,720,69.3C840,53,960,43,1080,42.7C1200,43,1320,53,1380,58.7L1440,64L1440,0L1380,0C1320,0,1200,0,1080,0C960,0,840,0,720,0C600,0,480,0,360,0C240,0,120,0,60,0L0,0Z"></path></svg>   -->
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#43bef0" fill-opacity="1" d="M0,192L60,170.7C120,149,240,107,360,101.3C480,96,600,128,720,128C840,128,960,96,1080,96C1200,96,1320,128,1380,144L1440,160L1440,0L1380,0C1320,0,1200,0,1080,0C960,0,840,0,720,0C600,0,480,0,360,0C240,0,120,0,60,0L0,0Z"></path></svg>
+    </div>
+   <!-- e3edfa -->
+  <nav class="container-fluid" id="navbar">
+    <div class="container d-flex align-items-center">
+      <a id="navbrand" href="#">
+        <img src="../assets/ubroio.png" alt="" width="130" height="">
+      </a>
+      <form class="flex-grow-1" id="searchbar">
+        <mat-form-field color="transparent" appearance="outline" class="align-items-center">
+          <!-- (focus)="appTabs.onFocus()" -->
+          <input id="searchbarInput" type="text" matInput [(ngModel)]="searchTerm" [ngModelOptions]="{standalone: true}" [matAutocomplete]="auto">
+          <mat-autocomplete #auto="matAutocomplete" autoActiveFirstOption>
+            <mat-option *ngFor="let card of data | search:'name':searchTerm ; index as i;" [value]="card.name" (onSelectionChange)="onSelection()" [routerLink]="['ref', card.name.toLocaleLowerCase()]">{{card.name}}</mat-option>
+          </mat-autocomplete>
+          <mat-icon matSuffix>search</mat-icon>
+          </mat-form-field>
+      </form>
+      <button class="btn btn-primary btn-lg" type="submit" id="subscribe" data-bs-toggle="modal" data-bs-target="#subscribeModal">Subscribe</button>
+    </div>
+  </nav>
+  
+  <nav class="container" id="navtabwrapper">
+    <div class="nav nav-tabs justify-content-start" id="nav-tab" role="tablist">
+        <mat-icon id="menuicon"><a data-bs-toggle="collapse"  href="#collapsedfilter">menu</a></mat-icon>
+      
+      <a class="nav-link {{this.active[0]}}" id="nav-home-tab" [routerLink]="['/', this.popular]" (click)="showActive(this.popular)">
+        <!-- <span style="background:red;"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#5e5a6b" class="bi bi-lightning-fill" viewBox="0 0 16 16">
+          <path d="M11.251.068a.5.5 0 0 1 .227.58L9.677 6.5H13a.5.5 0 0 1 .364.843l-8 8.5a.5.5 0 0 1-.842-.49L6.323 9.5H3a.5.5 0 0 1-.364-.843l8-8.5a.5.5 0 0 1 .615-.09z"/>
+        </svg></span> -->
+        <span>Popular</span>
+      </a>
+      <a class="nav-link {{this.active[1]}}" id="nav-profile-tab" [routerLink]="['/', this.latest]" (click)="showActive(this.latest)">
+        <!-- <span><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#5e5a6b" class="bi bi-bullseye" viewBox="0 0 16 16">
+          <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+          <path d="M8 13A5 5 0 1 1 8 3a5 5 0 0 1 0 10zm0 1A6 6 0 1 0 8 2a6 6 0 0 0 0 12z"/>
+          <path d="M8 11a3 3 0 1 1 0-6 3 3 0 0 1 0 6zm0 1a4 4 0 1 0 0-8 4 4 0 0 0 0 8z"/>
+          <path d="M9.5 8a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z"/>
+        </svg></span> -->
+        <span>Latest</span>
+      </a>
+      <!-- <a class="nav-link" id="nav-contact-tab" data-bs-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false"> -->
+      <a class="nav-link {{this.active[2]}}" id="nav-contact-tab" [routerLink]="['/', this.recommended]" (click)="showActive(this.recommended)">
+        <!-- <span><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#5e5a6b" class="bi bi-star-fill" viewBox="0 0 16 16">
+          <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.283.95l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+        </svg></span> -->
+        <span>Recommended</span>
+      </a>
+      <div class="collapse" id="collapsedfilter">
+        <div class="card card-body">
+          <div class="row no-gutters">
+            <div class="col-1"><span class="badge rounded-pill">Crypto</span> </div>
+            <div class="col-1"><span class="badge rounded-pill">VPN</span> </div>
+            <div class="col-1"><span class="badge rounded-pill">E-Commerce</span> </div>
+            <div class="col-1"><span class="badge rounded-pill">Clothing</span> </div>
+            <div class="col-1"><span class="badge rounded-pill">Travel</span> </div>
+            <div class="col-1"><span class="badge rounded-pill">Entertainment</span> </div>
+            <div class="col-1"><span class="badge rounded-pill">Crypto</span> </div>
+            <div class="col-1"><span class="badge rounded-pill">VPN</span> </div>
+            <div class="col-1"><span class="badge rounded-pill">E-Commerce</span> </div>
+            <div class="col-1"><span class="badge rounded-pill">Clothing</span> </div>
+            <div class="col-1"><span class="badge rounded-pill">Travel</span> </div>
+            <div class="col-1"><span class="badge rounded-pill">Entertainment</span> </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+  
+
+
+  <!-- Modal -->
+<div class="modal fade" id="subscribeModal" tabindex="-1" aria-labelledby="subscribeModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title" id="subscribeModalLabel">Email Address</h4>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="input-group mb-3">
+          <input type="email" class="form-control" placeholder="" aria-label="" [(ngModel)]='email'>
+          <!-- <span class="input-group-text">@</span>
+          <input type="text" class="form-control" placeholder="" aria-label="website"> -->
+        </div>
+        <div>
+          <span *ngIf="confirmation">Successfully Submitted</span>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" (click)="submitEmail(email)">Submit</button>
+      </div>
+    </div>
+  </div>
+</div>
+  

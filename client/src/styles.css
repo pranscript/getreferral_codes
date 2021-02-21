@@ -1,0 +1,16 @@
+*{
+    padding:0;
+    margin:0;
+}
+html{
+    background: #edf2f8;  
+    /* background: -webkit-linear-gradient(to bottom, #edf2f8, #ffe3e3); 
+    background: linear-gradient(to bottom, #edf2f8, #ffe3e3);  */
+}
+body{
+    background: #edf2f8; 
+    /* background: -webkit-linear-gradient(to bottom, #edf2f8, #ffe3e3);  
+    background: linear-gradient(to bottom, #edf2f8, #ffe3e3);  */
+    
+}
+
